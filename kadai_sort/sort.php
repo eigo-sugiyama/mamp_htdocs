@@ -13,9 +13,16 @@
         function sort_2way($array, $order) {
           if ($order) {
               sort($array); // 昇順ソート
+              echo "昇順にソートします。<br>";
           } else {
               rsort($array); // 降順ソート
+              echo "降順にソートします。<br>";
           }
+          
+          foreach ($array as $num) {
+              echo $num . "<br>";
+          }
+          
           return $array;
         }
         
@@ -23,21 +30,10 @@
         $nums = [15, 4, 18, 23, 10];
         
         // 昇順にソート
-        $sortedAsc = sort_2way($nums, true);
+        sort_2way($nums, true);
         
         // 降順にソート
-        $sortedDesc = sort_2way($nums, false);
-        
-        // ページ上に表示
-        echo "昇順にソートします。<br>";
-        foreach ($sortedAsc as $num) {
-          echo $num . "<br>";
-        }
-        
-        echo "降順にソートします。<br>";
-        foreach ($sortedDesc as $num) {
-          echo $num . "<br>";
-        }
+        sort_2way($nums, false);
         ?>
     </p>
 </body>
