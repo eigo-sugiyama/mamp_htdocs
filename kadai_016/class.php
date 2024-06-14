@@ -23,7 +23,7 @@
         
           //メソッドを定義する
           public function show_price() {
-            echo $this->price . '<br>';
+            return $this->price . '<br>';
           }
         }
         ?>
@@ -37,9 +37,10 @@
           public $weight;
 
           // コンストラクタを定義する
-          public function __construct(string $name , int $price) {
+          public function __construct(string $name , int $height , int $weight) {
             $this->name = $name;
-            $this->price = $price;
+            $this->height = $height;
+            $this->weight = $weight;
           }
 
           //メソッドを定義する
@@ -47,19 +48,25 @@
             $this->height = $height;
           }
           public function show_height() {
-            echo $this->height . '<br>';
+            return $this->height . '<br>';
           }
         }
 
         // Food クラスのインスタンス作成
         $food = new Food("Apple", 100);
+        echo "<pre>";
         print_r($food);
-        echo "\n";
+        echo "</pre><br>";
 
         // Animal クラスのインスタンス作成
         $animal = new Animal("Elephant", 300, 5000);
+        echo "<pre>";
         print_r($animal);
-        echo "\n";
+        echo "</pre><br>";
+
+        // メソッドへのアクセス
+        echo "price:" . $food->show_price();
+        echo "height:" . $animal->show_height();
         ?>
     </p>
 </body>
